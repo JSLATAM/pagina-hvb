@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Menu, MessageCircle, Phone } from "lucide-react";
 import { primaryNav } from "@/config/navigation";
 import { getBookingUrl } from "@/lib/booking";
@@ -15,7 +15,6 @@ import { MobileNav } from "@/components/layout/mobile-nav";
 
 export function Header() {
   const pathname = usePathname();
-  const [compact, setCompact] = useState(false);
   const [open, setOpen] = useState(false);
   const [menuPath, setMenuPath] = useState(pathname);
 
@@ -24,33 +23,13 @@ export function Header() {
     setOpen(false);
   }
 
-  useEffect(() => {
-    const onScroll = () => {
-      setCompact(window.scrollY > 16);
-    };
-
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
   const whatsappHref = getWhatsAppUrl() ?? "/contacto";
   const phoneHref = getPhoneHref() ?? "/contacto";
 
   return (
-    <header
-      className={cn(
-        "border-b border-transparent bg-white/90 backdrop-blur-md transition-[box-shadow,background-color] duration-300",
-        compact && "border-line/80 bg-white/95 shadow-header",
-      )}
-    >
-      <Container
-        className={cn(
-          "flex items-center justify-between gap-4 transition-[height] duration-300",
-          compact ? "h-[var(--hvb-header-height-compact)]" : "h-[var(--hvb-header-height)]",
-        )}
-      >
-        <Logo variant={compact ? "compact" : "header"} priority />
+    <header className="border-b border-line/80 bg-white">
+      <Container className="flex h-[var(--hvb-header-height)] items-center justify-between gap-4">
+        <Logo variant="header" priority />
 
         <nav className="hidden lg:block" aria-label="Principal">
           <ul className="flex items-center gap-1">
@@ -65,7 +44,7 @@ export function Header() {
                   <Link
                     href={item.href}
                     className={cn(
-                      "relative rounded-full px-2 py-2 font-heading text-[0.68rem] font-semibold tracking-[0.08em] uppercase transition-colors xl:px-2.5 xl:text-[0.72rem]",
+                      "relative rounded-full px-2 py-2 font-heading text-[0.68rem] font-semibold tracking-[0.08em] uppercase xl:px-2.5 xl:text-[0.72rem]",
                       active ? "text-navy" : "text-muted hover:text-navy",
                     )}
                     aria-current={active ? "page" : undefined}
@@ -73,8 +52,8 @@ export function Header() {
                     {item.label}
                     <span
                       className={cn(
-                        "absolute inset-x-3 -bottom-0.5 h-px rounded-full transition-opacity",
-                        active ? "bg-turquoise opacity-100" : "opacity-0",
+                        "absolute inset-x-3 -bottom-0.5 h-px rounded-full",
+                        active ? "bg-turquoise" : "bg-transparent",
                       )}
                       aria-hidden="true"
                     />

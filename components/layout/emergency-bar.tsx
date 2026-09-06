@@ -16,16 +16,16 @@ export function EmergencyBar() {
     : "¿Tienes una urgencia veterinaria?";
 
   return (
-    <div className="bg-dark-navy text-white">
-      <Container className="flex flex-col items-start justify-between gap-3 py-2.5 sm:flex-row sm:items-center">
-        <p className="flex items-center gap-3 text-sm">
+    <div className="h-[var(--hvb-emergency-bar-height)] bg-dark-navy text-white">
+      <Container className="flex h-full items-center justify-between gap-3">
+        <p className="flex min-w-0 items-center gap-3 text-sm">
           <span
             aria-hidden="true"
             className="h-1.5 w-1.5 shrink-0 rounded-full bg-turquoise"
           />
-          <span className="font-heading tracking-[0.04em]">{message}</span>
+          <span className="truncate font-heading tracking-[0.04em]">{message}</span>
         </p>
-        <div className="flex flex-wrap gap-2">
+        <div className="flex shrink-0 gap-2">
           <Button
             href={phoneHref}
             event="click_llamar"
@@ -40,6 +40,7 @@ export function EmergencyBar() {
             event="click_como_llegar"
             variant="inverse"
             size="sm"
+            className="hidden sm:inline-flex"
           >
             <MapPin className="h-3.5 w-3.5" aria-hidden="true" />
             Cómo llegar

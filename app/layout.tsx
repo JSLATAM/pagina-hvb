@@ -10,13 +10,15 @@ import "./globals.css";
 const display = Plus_Jakarta_Sans({
   subsets: ["latin"],
   variable: "--font-display",
-  display: "swap",
+  display: "optional",
+  adjustFontFallback: true,
 });
 
 const body = Inter({
   subsets: ["latin"],
   variable: "--font-body",
-  display: "swap",
+  display: "optional",
+  adjustFontFallback: true,
 });
 
 const metadataBase = getMetadataBase();

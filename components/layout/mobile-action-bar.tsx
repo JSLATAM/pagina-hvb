@@ -50,10 +50,10 @@ export function MobileActionBar() {
       ];
 
   return (
-    <div className="fixed inset-x-0 bottom-0 z-30 border-t border-line bg-white/95 backdrop-blur-md lg:hidden">
+    <div className="fixed inset-x-0 bottom-0 z-30 h-[var(--hvb-action-bar-height)] border-t border-line bg-white lg:hidden">
       <nav
         aria-label="Acciones rápidas"
-        className="mx-auto grid min-h-[var(--hvb-action-bar-height)] max-w-lg grid-flow-col"
+        className="mx-auto grid h-full max-w-lg grid-flow-col"
       >
         {actions.map((action) => {
           const Icon = action.icon;

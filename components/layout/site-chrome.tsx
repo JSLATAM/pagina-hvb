@@ -14,7 +14,7 @@ export function SiteChrome({ children }: SiteChromeProps) {
   return (
     <>
       <SkipLink />
-      <div className="sticky top-0 z-50">
+      <div className="sticky top-0 z-50 bg-white">
         <EmergencyBar />
         <Header />
       </div>

@@ -58,7 +58,7 @@ function classes({
   className,
 }: SharedProps) {
   return cn(
-    "inline-flex items-center justify-center gap-2 rounded-full font-heading font-semibold tracking-[0.08em] uppercase transition-colors duration-200 disabled:pointer-events-none disabled:opacity-50",
+    "inline-flex items-center justify-center gap-2 rounded-full font-heading font-semibold tracking-[0.08em] uppercase disabled:pointer-events-none disabled:opacity-50",
     variants[variant],
     sizes[size],
     fullWidth && "w-full",
