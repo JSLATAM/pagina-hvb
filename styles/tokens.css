@@ -1,0 +1,41 @@
+:root {
+  --hvb-navy: #072a59;
+  --hvb-dark-navy: #041d3d;
+  --hvb-blue: #0d4f8b;
+  --hvb-steel-blue: #356d9f;
+  --hvb-turquoise: #56e1d2;
+  --hvb-turquoise-dark: #2fb8ac;
+  --hvb-white: #ffffff;
+  --hvb-light: #f4f8fb;
+  --hvb-light-blue: #eaf2f8;
+  --hvb-text: #10243a;
+  --hvb-muted: #66798b;
+  --hvb-border: #dce6ed;
+  --hvb-success: #3fae78;
+  --hvb-warning: #e5a642;
+  --hvb-danger: #d95151;
+  --hvb-header-height: 5.5rem;
+  --hvb-header-height-compact: 4.25rem;
+  --hvb-action-bar-height: 4.5rem;
+}
+
+@theme inline {
+  --color-navy: var(--hvb-navy);
+  --color-dark-navy: var(--hvb-dark-navy);
+  --color-blue: var(--hvb-blue);
+  --color-steel: var(--hvb-steel-blue);
+  --color-turquoise: var(--hvb-turquoise);
+  --color-turquoise-dark: var(--hvb-turquoise-dark);
+  --color-light: var(--hvb-light);
+  --color-light-blue: var(--hvb-light-blue);
+  --color-ink: var(--hvb-text);
+  --color-muted: var(--hvb-muted);
+  --color-line: var(--hvb-border);
+  --color-success: var(--hvb-success);
+  --color-warning: var(--hvb-warning);
+  --color-danger: var(--hvb-danger);
+  --font-sans: var(--font-body), ui-sans-serif, system-ui, sans-serif;
+  --font-heading: var(--font-display), ui-sans-serif, system-ui, sans-serif;
+  --shadow-header: 0 8px 24px rgb(4 29 61 / 0.06);
+  --shadow-soft: 0 12px 40px rgb(7 42 89 / 0.08);
+}
