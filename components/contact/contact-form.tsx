@@ -1,9 +1,16 @@
 "use client";
 
-import { useActionState, type ReactNode } from "react";
-import { submitContact, type ContactState } from "@/app/contacto/actions";
+import { useState, type FormEvent, type ReactNode } from "react";
+import { contactSchema } from "@/lib/validations/contact";
 import { Button } from "@/components/ui/button";
 import { track } from "@/lib/analytics";
+import { site } from "@/config/site";
+
+type ContactState = {
+  status: "idle" | "success" | "error";
+  message: string;
+  fieldErrors?: Record<string, string>;
+};
 
 const initialState: ContactState = {
   status: "idle",
@@ -37,20 +44,84 @@ function Field({
 }
 
 const inputClass =
-  "min-h-12 w-full rounded-xl border border-line bg-white px-4 text-ink outline-none transition-colors focus:border-turquoise";
+  "min-h-12 w-full rounded-xl border border-line bg-white px-4 text-ink outline-none focus:border-turquoise";
 
 export function ContactForm() {
-  const [state, action, pending] = useActionState(submitContact, initialState);
+  const [state, setState] = useState<ContactState>(initialState);
+  const [pending, setPending] = useState(false);
+
+  function onSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    const form = event.currentTarget;
+    const data = new FormData(form);
+    const honeypot = String(data.get("company") ?? "");
+
+    if (honeypot.length > 0) {
+      setState({
+        status: "success",
+        message: "Recibimos tu mensaje. El hospital te contactará a la brevedad.",
+      });
+      return;
+    }
+
+    const parsed = contactSchema.safeParse({
+      name: data.get("name"),
+      lastName: data.get("lastName"),
+      email: data.get("email"),
+      phone: data.get("phone"),
+      patientName: data.get("patientName"),
+      reason: data.get("reason"),
+      message: data.get("message"),
+      privacy: data.get("privacy") === "on",
+      company: honeypot,
+    });
+
+    if (!parsed.success) {
+      const fieldErrors: Record<string, string> = {};
+
+      for (const issue of parsed.error.issues) {
+        const field = issue.path[0];
+        if (typeof field === "string" && !fieldErrors[field]) {
+          fieldErrors[field] = issue.message;
+        }
+      }
+
+      setState({
+        status: "error",
+        message: "Revisa los campos marcados para continuar.",
+        fieldErrors,
+      });
+      return;
+    }
+
+    setPending(true);
+    track("submit_contacto");
+
+    const subject = `Consulta HVB: ${parsed.data.reason}`;
+    const body = [
+      `Nombre: ${parsed.data.name} ${parsed.data.lastName}`,
+      `Correo: ${parsed.data.email}`,
+      `Teléfono: ${parsed.data.phone}`,
+      parsed.data.patientName ? `Paciente: ${parsed.data.patientName}` : null,
+      "",
+      parsed.data.message,
+    ]
+      .filter(Boolean)
+      .join("\n");
+
+    window.location.href = `mailto:${site.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+    setState({
+      status: "success",
+      message:
+        "Se abrió tu correo para enviar el mensaje a contacto@hvb.cl. Si no se abre, escribe directo a ese correo.",
+    });
+    form.reset();
+    setPending(false);
+  }
 
   return (
-    <form
-      action={action}
-      className="space-y-5"
-      onSubmit={() => {
-        track("submit_contacto");
-      }}
-      noValidate
-    >
+    <form className="space-y-5" onSubmit={onSubmit} noValidate>
       <div className="hidden" aria-hidden="true">
         <label htmlFor="company">Empresa</label>
         <input id="company" name="company" tabIndex={-1} autoComplete="off" />
