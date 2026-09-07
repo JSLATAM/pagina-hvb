@@ -19,15 +19,15 @@ export default function EmergencyPage() {
   const directionsHref = getDirectionsUrl() ?? "/contacto";
 
   return (
-    <Container className="py-12 sm:py-16">
+    <Container className="py-8 sm:py-12 lg:py-16">
       <ViewTracker event="view_urgencias" />
-      <p className="font-heading text-xs font-semibold tracking-[0.2em] text-steel uppercase">
+      <p className="font-heading text-[0.65rem] font-semibold tracking-[0.18em] text-steel uppercase sm:text-xs sm:tracking-[0.2em]">
         Atención continua 24 horas
       </p>
-      <h1 className="mt-3 font-heading text-4xl font-semibold tracking-tight text-navy sm:text-5xl">
+      <h1 className="mt-3 font-heading text-2xl font-semibold tracking-tight text-navy sm:text-4xl lg:text-5xl">
         Urgencias Veterinarias
       </h1>
-      <p className="mt-4 max-w-2xl text-lg leading-8 text-muted">
+      <p className="mt-4 max-w-2xl text-sm leading-7 text-muted sm:text-lg sm:leading-8">
         Si el paciente está grave o el cuadro avanza rápido, prioriza el
         contacto directo. El hospital funciona las 24 horas, todos los días,
         para urgencias veterinarias en Providencia.

@@ -39,7 +39,7 @@ export function Footer() {
   const directionsHref = getDirectionsUrl();
 
   return (
-    <footer className="bg-dark-navy text-white">
+    <footer className="bg-dark-navy pb-[calc(var(--hvb-action-bar-height)+env(safe-area-inset-bottom))] text-white lg:pb-0">
       <div className="h-px bg-linear-to-r from-transparent via-turquoise/70 to-transparent" />
       <Container className="py-14 sm:py-16">
         <div className="grid gap-12 md:grid-cols-2 xl:grid-cols-[1.2fr_repeat(3,minmax(0,1fr))]">

@@ -3,12 +3,28 @@
 
 html {
   scroll-behavior: auto;
+  overflow-x: clip;
 }
 
 body {
   background: var(--hvb-white);
   color: var(--hvb-text);
   font-family: var(--font-body), ui-sans-serif, system-ui, sans-serif;
+  overflow-x: clip;
+}
+
+img,
+svg,
+video {
+  max-width: 100%;
+  height: auto;
+}
+
+h1,
+h2,
+h3,
+p {
+  overflow-wrap: break-word;
 }
 
 h1,

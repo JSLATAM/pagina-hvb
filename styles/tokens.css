@@ -14,9 +14,9 @@
   --hvb-success: #3fae78;
   --hvb-warning: #e5a642;
   --hvb-danger: #d95151;
-  --hvb-emergency-bar-height: 2.75rem;
-  --hvb-header-height: 4.75rem;
-  --hvb-action-bar-height: 4.5rem;
+  --hvb-emergency-bar-height: 3rem;
+  --hvb-header-height: 4.25rem;
+  --hvb-action-bar-height: 4.25rem;
 }
 
 @theme inline {

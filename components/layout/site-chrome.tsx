@@ -14,14 +14,11 @@ export function SiteChrome({ children }: SiteChromeProps) {
   return (
     <>
       <SkipLink />
-      <div className="sticky top-0 z-50 bg-white">
+      <div className="sticky top-0 z-50 min-w-0 bg-white">
         <EmergencyBar />
         <Header />
       </div>
-      <main
-        id="contenido"
-        className="flex-1 pb-[calc(var(--hvb-action-bar-height)+0.5rem)] lg:pb-0"
-      >
+      <main id="contenido" className="min-w-0 flex-1">
         {children}
       </main>
       <Footer />

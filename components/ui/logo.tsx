@@ -18,7 +18,7 @@ const sizes: Record<
   header: { box: "h-12 w-12", image: 48, wordmark: "short" },
   compact: { box: "h-10 w-10", image: 40, wordmark: "none" },
   footer: { box: "h-16 w-16", image: 64, wordmark: "full", stacked: true },
-  institutional: { box: "h-32 w-32", image: 128, wordmark: "none" },
+  institutional: { box: "h-24 w-24 sm:h-32 sm:w-32", image: 128, wordmark: "none" },
 };
 
 interface LogoProps {

@@ -24,7 +24,7 @@ export default function FaqPage() {
           { label: "Preguntas frecuentes" },
         ]}
       />
-      <Container className="py-14 sm:py-16">
+      <Container className="py-10 sm:py-14 lg:py-16">
         {generalFaqs.length === 0 ? (
           <EmptyState
             title="Preguntas por validar"

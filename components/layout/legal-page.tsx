@@ -21,7 +21,7 @@ export function LegalPage({ document }: LegalPageProps) {
           { label: document.title },
         ]}
       />
-      <Container className="py-12 sm:py-16">
+      <Container className="py-10 sm:py-14 lg:py-16">
         <div className="max-w-2xl space-y-8">
           {document.sections.map((section) => (
             <section key={section.heading}>

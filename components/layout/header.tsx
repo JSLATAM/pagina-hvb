@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Menu, MessageCircle, Phone } from "lucide-react";
 import { primaryNav } from "@/config/navigation";
 import { getBookingUrl } from "@/lib/booking";
@@ -16,23 +16,21 @@ import { MobileNav } from "@/components/layout/mobile-nav";
 export function Header() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
-  const [menuPath, setMenuPath] = useState(pathname);
 
-  if (menuPath !== pathname) {
-    setMenuPath(pathname);
+  useEffect(() => {
     setOpen(false);
-  }
+  }, [pathname]);
 
   const whatsappHref = getWhatsAppUrl() ?? "/contacto";
   const phoneHref = getPhoneHref() ?? "/contacto";
 
   return (
     <header className="border-b border-line/80 bg-white">
-      <Container className="flex h-[var(--hvb-header-height)] items-center justify-between gap-4">
+      <Container className="flex h-[var(--hvb-header-height)] items-center justify-between gap-3">
         <Logo variant="header" priority />
 
-        <nav className="hidden lg:block" aria-label="Principal">
-          <ul className="flex items-center gap-1">
+        <nav className="hidden min-w-0 lg:block" aria-label="Principal">
+          <ul className="flex items-center gap-0.5 xl:gap-1">
             {primaryNav.map((item) => {
               const active =
                 item.href === "/"
@@ -44,7 +42,7 @@ export function Header() {
                   <Link
                     href={item.href}
                     className={cn(
-                      "relative rounded-full px-2 py-2 font-heading text-[0.68rem] font-semibold tracking-[0.08em] uppercase xl:px-2.5 xl:text-[0.72rem]",
+                      "relative rounded-full px-1.5 py-2 font-heading text-[0.65rem] font-semibold tracking-[0.08em] uppercase xl:px-2.5 xl:text-[0.72rem]",
                       active ? "text-navy" : "text-muted hover:text-navy",
                     )}
                     aria-current={active ? "page" : undefined}
@@ -52,7 +50,7 @@ export function Header() {
                     {item.label}
                     <span
                       className={cn(
-                        "absolute inset-x-3 -bottom-0.5 h-px rounded-full",
+                        "absolute inset-x-2 -bottom-0.5 h-px rounded-full xl:inset-x-3",
                         active ? "bg-turquoise" : "bg-transparent",
                       )}
                       aria-hidden="true"
@@ -64,13 +62,13 @@ export function Header() {
           </ul>
         </nav>
 
-        <div className="flex items-center gap-2">
+        <div className="flex shrink-0 items-center gap-2">
           <Button
             href={phoneHref}
             event="click_llamar"
             variant="ghost"
             size="sm"
-            className="hidden h-11 w-11 px-0 md:inline-flex xl:hidden"
+            className="hidden h-11 w-11 px-0 lg:inline-flex xl:hidden"
             aria-label="Llamar"
           >
             <Phone className="h-4 w-4" aria-hidden="true" />
@@ -89,17 +87,9 @@ export function Header() {
             href={getBookingUrl()}
             event="click_reservar"
             size="sm"
-            className="hidden sm:inline-flex"
+            className="hidden lg:inline-flex"
           >
             Reservar hora
-          </Button>
-          <Button
-            href={getBookingUrl()}
-            event="click_reservar"
-            size="sm"
-            className="inline-flex px-4 sm:hidden"
-          >
-            Reservar
           </Button>
           <button
             type="button"

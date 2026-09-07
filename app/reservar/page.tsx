@@ -36,7 +36,7 @@ export default function BookingPage() {
           { label: "Reservar" },
         ]}
       />
-      <Container className="py-14 sm:py-16">
+      <Container className="py-10 sm:py-14 lg:py-16">
         <ol className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
           {steps.map((step, index) => (
             <li

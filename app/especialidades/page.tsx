@@ -26,7 +26,7 @@ export default function SpecialtiesPage() {
           { label: "Especialidades" },
         ]}
       />
-      <Container className="py-14 sm:py-16">
+      <Container className="py-10 sm:py-14 lg:py-16">
         {items.length === 0 ? (
           <EmptyState
             title="Especialidades por confirmar"

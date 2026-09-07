@@ -25,7 +25,7 @@ export default function ServicesPage() {
           { label: "Servicios" },
         ]}
       />
-      <Container className="grid gap-5 py-14 sm:grid-cols-2 sm:py-16 xl:grid-cols-3">
+      <Container className="grid gap-4 py-10 sm:grid-cols-2 sm:gap-5 sm:py-14 xl:grid-cols-3 xl:py-16">
         {items.map((service) => (
           <ServiceCard key={service.slug} service={service} />
         ))}

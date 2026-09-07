@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter, Plus_Jakarta_Sans } from "next/font/google";
 import { site } from "@/config/site";
 import { brand } from "@/config/site";
@@ -22,6 +22,13 @@ const body = Inter({
 });
 
 const metadataBase = getMetadataBase();
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
+  themeColor: "#072a59",
+};
 
 export const metadata: Metadata = {
   metadataBase,
@@ -60,7 +67,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="es"
       className={`${display.variable} ${body.variable} h-full antialiased`}
     >
-      <body className="flex min-h-full flex-col bg-white text-ink">
+      <body className="flex min-h-full min-w-0 flex-col bg-white text-ink">
         <JsonLd />
         <SiteChrome>{children}</SiteChrome>
       </body>

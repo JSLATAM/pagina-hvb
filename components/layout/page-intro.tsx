@@ -19,17 +19,17 @@ export function PageIntro({
 }: PageIntroProps) {
   return (
     <section className="border-b border-line bg-light">
-      <Container className="py-12 sm:py-16">
+      <Container className="py-8 sm:py-12 lg:py-16">
         <Breadcrumbs items={breadcrumbs} />
         {eyebrow ? (
-          <p className="mt-6 font-heading text-xs font-semibold tracking-[0.2em] text-steel uppercase">
+          <p className="mt-5 font-heading text-[0.65rem] font-semibold tracking-[0.18em] text-steel uppercase sm:mt-6 sm:text-xs sm:tracking-[0.2em]">
             {eyebrow}
           </p>
         ) : null}
-        <h1 className="mt-3 max-w-3xl font-heading text-3xl font-semibold tracking-tight text-navy sm:text-4xl">
+        <h1 className="mt-3 max-w-3xl font-heading text-2xl font-semibold tracking-tight text-navy sm:text-3xl lg:text-4xl">
           {title}
         </h1>
-        <p className="mt-4 max-w-2xl text-base leading-8 text-muted sm:text-lg">
+        <p className="mt-3 max-w-2xl text-sm leading-7 text-muted sm:mt-4 sm:text-base sm:leading-8 lg:text-lg">
           {description}
         </p>
         {actions ? <div className="mt-8 flex flex-wrap gap-3">{actions}</div> : null}

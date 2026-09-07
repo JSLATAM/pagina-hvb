@@ -40,7 +40,7 @@ export default function ContactPage() {
           </>
         }
       />
-      <Container className="grid gap-12 py-14 sm:py-16 lg:grid-cols-[0.9fr_1.1fr]">
+      <Container className="grid gap-10 py-10 sm:py-14 lg:grid-cols-[0.9fr_1.1fr] lg:gap-12 lg:py-16">
         <aside className="space-y-6">
           <div>
             <h2 className="font-heading text-xl font-semibold text-navy">

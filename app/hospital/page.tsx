@@ -33,9 +33,9 @@ export default function HospitalPage() {
           </>
         }
       />
-      <Container className="grid gap-10 py-14 sm:py-16 lg:grid-cols-2">
+      <Container className="grid gap-8 py-10 sm:py-14 lg:grid-cols-2 lg:gap-10 lg:py-16">
         <div>
-          <h2 className="font-heading text-2xl font-semibold text-navy">
+          <h2 className="font-heading text-xl font-semibold text-navy sm:text-2xl">
             Medicina Veterinaria responsable y continuidad clínica
           </h2>
           <p className="mt-4 leading-8 text-muted">
@@ -46,7 +46,7 @@ export default function HospitalPage() {
           </p>
         </div>
         <div>
-          <h2 className="font-heading text-2xl font-semibold text-navy">
+          <h2 className="font-heading text-xl font-semibold text-navy sm:text-2xl">
             Infraestructura al servicio del equipo
           </h2>
           <p className="mt-4 leading-8 text-muted">
