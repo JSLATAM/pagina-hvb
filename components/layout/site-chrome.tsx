@@ -14,8 +14,8 @@ export function SiteChrome({ children }: SiteChromeProps) {
   return (
     <>
       <SkipLink />
-      <div className="sticky top-0 z-50 min-w-0 bg-white">
-        <EmergencyBar />
+      <EmergencyBar />
+      <div className="sticky top-0 z-50 min-w-0 border-b-0 bg-white">
         <Header />
       </div>
       <main id="contenido" className="min-w-0 flex-1">

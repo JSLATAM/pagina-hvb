@@ -8,7 +8,7 @@ import { Container } from "@/components/ui/container";
 export const metadata: Metadata = {
   title: getPageTitle("Servicios"),
   description:
-    "Servicios de Medicina Veterinaria en Hospital Veterinario Bilbao: urgencias 24 horas, hospitalización, cirugía, laboratorio e imagenología en Providencia.",
+    "Servicios de Medicina Veterinaria en Hospital Veterinario Bilbao: consulta, hospitalización, cirugía, laboratorio e imagenología en Providencia.",
 };
 
 export default function ServicesPage() {
@@ -25,7 +25,7 @@ export default function ServicesPage() {
           { label: "Servicios" },
         ]}
       />
-      <Container className="grid gap-4 py-10 sm:grid-cols-2 sm:gap-5 sm:py-14 xl:grid-cols-3 xl:py-16">
+      <Container className="grid gap-6 py-10 sm:grid-cols-2 sm:py-14 xl:grid-cols-3 xl:py-16">
         {items.map((service) => (
           <ServiceCard key={service.slug} service={service} />
         ))}

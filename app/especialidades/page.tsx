@@ -9,7 +9,7 @@ import { Container } from "@/components/ui/container";
 export const metadata: Metadata = {
   title: getPageTitle("Especialidades"),
   description:
-    "Especialidades de Medicina Veterinaria en Hospital Veterinario Bilbao, clínica veterinaria 24 horas en Providencia.",
+    "Especialidades de Medicina Veterinaria en Hospital Veterinario Bilbao, clínica veterinaria en Providencia.",
 };
 
 export default function SpecialtiesPage() {

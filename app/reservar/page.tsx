@@ -8,7 +8,7 @@ import { Container } from "@/components/ui/container";
 export const metadata: Metadata = {
   title: getPageTitle("Reservar hora"),
   description:
-    "Reserva hora en Hospital Veterinario Bilbao, clínica veterinaria 24 horas en Providencia. La agenda en línea se conectará cuando exista el sistema de citas.",
+    "Reserva hora en Hospital Veterinario Bilbao, clínica veterinaria en Providencia. La agenda en línea se conectará cuando exista el sistema de citas.",
 };
 
 const steps = [

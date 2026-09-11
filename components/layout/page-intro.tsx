@@ -11,28 +11,32 @@ interface PageIntroProps {
 }
 
 export function PageIntro({
-  eyebrow,
   title,
   description,
   breadcrumbs,
   actions,
 }: PageIntroProps) {
   return (
-    <section className="border-b border-line bg-light">
-      <Container className="py-8 sm:py-12 lg:py-16">
+    <section className="bg-white">
+      <Container className="py-12 sm:py-16 lg:py-20">
         <Breadcrumbs items={breadcrumbs} />
-        {eyebrow ? (
-          <p className="mt-5 font-heading text-[0.65rem] font-semibold tracking-[0.18em] text-steel uppercase sm:mt-6 sm:text-xs sm:tracking-[0.2em]">
-            {eyebrow}
+        <div className="mt-8 text-center sm:mt-10">
+          <h1 className="mx-auto max-w-4xl font-heading text-3xl leading-tight font-semibold tracking-tight text-navy sm:text-4xl lg:text-5xl">
+            {title}
+          </h1>
+          <span
+            aria-hidden="true"
+            className="mx-auto mt-6 block h-1 w-12 rounded-full bg-turquoise"
+          />
+          <p className="mx-auto mt-6 max-w-2xl text-base leading-8 text-muted sm:text-lg">
+            {description}
           </p>
-        ) : null}
-        <h1 className="mt-3 max-w-3xl font-heading text-2xl font-semibold tracking-tight text-navy sm:text-3xl lg:text-4xl">
-          {title}
-        </h1>
-        <p className="mt-3 max-w-2xl text-sm leading-7 text-muted sm:mt-4 sm:text-base sm:leading-8 lg:text-lg">
-          {description}
-        </p>
-        {actions ? <div className="mt-8 flex flex-wrap gap-3">{actions}</div> : null}
+          {actions ? (
+            <div className="mt-8 flex flex-wrap justify-center gap-3">
+              {actions}
+            </div>
+          ) : null}
+        </div>
       </Container>
     </section>
   );

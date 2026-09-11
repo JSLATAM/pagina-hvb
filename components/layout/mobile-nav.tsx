@@ -82,7 +82,7 @@ export function MobileNav({ open, onClose, pathname }: MobileNavProps) {
                   <Link
                     href={item.href}
                     onClick={onClose}
-                    className={`block rounded-xl px-3 py-3 font-heading text-sm font-semibold tracking-[0.06em] uppercase transition-colors ${
+                    className={`block rounded-xl px-3 py-3 text-base font-medium transition-colors ${
                       active
                         ? "bg-light-blue text-navy"
                         : "text-ink hover:bg-light"

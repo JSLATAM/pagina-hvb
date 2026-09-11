@@ -7,7 +7,7 @@ export function getMetadataBase(): URL | undefined {
 }
 
 export function getDefaultTitle(): string {
-  return `${site.name} | Clínica Veterinaria 24 Horas en Providencia`;
+  return `${site.name} | Clínica Veterinaria en Providencia`;
 }
 
 export function getPageTitle(title: string): string {

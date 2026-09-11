@@ -23,7 +23,7 @@ function FooterList({
 }) {
   return (
     <div>
-      <h2 className="font-heading text-xs font-semibold tracking-[0.18em] text-turquoise uppercase">
+      <h2 className="font-heading text-sm font-semibold text-turquoise">
         {title}
       </h2>
       <ul className="mt-4 space-y-2.5">{children}</ul>
@@ -46,16 +46,19 @@ export function Footer() {
           <div className="max-w-sm">
             <Logo variant="footer" />
             <p className="mt-5 text-sm leading-7 text-white/70">
-              Hospital veterinario y clínica veterinaria 24 horas en
-              Providencia, con Medicina Veterinaria de urgencias y atención
-              continua.
+              Hospital veterinario y clínica veterinaria en Providencia, con
+              Medicina Veterinaria de consulta, hospitalización, cirugía y
+              diagnóstico.
+            </p>
+            <p className="mt-4 font-heading text-sm font-semibold text-turquoise">
+              {site.hours}
             </p>
             <div className="mt-6 flex flex-wrap gap-2">
               <Button href={getBookingUrl()} event="click_reservar" size="sm">
                 Reservar hora
               </Button>
-              <Button href="/urgencias" variant="inverse" size="sm">
-                Urgencias
+              <Button href="/contacto" variant="inverse" size="sm">
+                Contacto
               </Button>
             </div>
           </div>

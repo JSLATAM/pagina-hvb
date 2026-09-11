@@ -7,7 +7,7 @@ export function getVeterinarySchema(): Record<string, unknown> {
 
   return {
     "@context": "https://schema.org",
-    "@type": ["VeterinaryCare", "LocalBusiness", "EmergencyService"],
+    "@type": ["VeterinaryCare", "LocalBusiness"],
     name: site.name,
     alternateName: [site.shortName, "Clínica Veterinaria Bilbao"],
     description: site.description,
@@ -23,20 +23,6 @@ export function getVeterinarySchema(): Record<string, unknown> {
       addressLocality: site.commune,
       addressRegion: "Región Metropolitana",
       addressCountry: "CL",
-    },
-    openingHoursSpecification: {
-      "@type": "OpeningHoursSpecification",
-      dayOfWeek: [
-        "Monday",
-        "Tuesday",
-        "Wednesday",
-        "Thursday",
-        "Friday",
-        "Saturday",
-        "Sunday",
-      ],
-      opens: "00:00",
-      closes: "23:59",
     },
     availableLanguage: "es",
     areaServed: [

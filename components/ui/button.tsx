@@ -19,9 +19,9 @@ const variants = {
 } as const;
 
 const sizes = {
-  sm: "min-h-10 px-4 text-xs",
-  md: "min-h-11 px-5 text-sm",
-  lg: "min-h-12 px-6 text-sm sm:text-[0.95rem]",
+  sm: "min-h-10 px-5 text-sm",
+  md: "min-h-11 px-6 text-sm",
+  lg: "min-h-12 px-7 text-sm sm:text-base",
 } as const;
 
 type ButtonVariant = keyof typeof variants;
@@ -58,7 +58,7 @@ function classes({
   className,
 }: SharedProps) {
   return cn(
-    "inline-flex items-center justify-center gap-2 rounded-full font-heading font-semibold tracking-[0.08em] uppercase disabled:pointer-events-none disabled:opacity-50",
+    "inline-flex items-center justify-center gap-2 rounded-full font-heading font-semibold tracking-wide disabled:pointer-events-none disabled:opacity-50",
     variants[variant],
     sizes[size],
     fullWidth && "w-full",

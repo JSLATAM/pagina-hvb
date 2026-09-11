@@ -19,7 +19,7 @@ export const services: Service[] = [
       "Derivación a exámenes o especialidad cuando corresponda",
     ],
     howItWorks: [
-      "Reserva o acude según la urgencia del caso",
+      "Reserva una hora",
       "Conversamos la historia clínica y revisamos al paciente",
       "Definimos un plan claro y los próximos pasos",
     ],
@@ -56,7 +56,7 @@ export const services: Service[] = [
     relatedServiceSlugs: ["hospitalizacion", "cirugia"],
     relatedSpecialtySlugs: [],
     teamSlugs: [],
-    enabled: true,
+    enabled: false,
     icon: "siren",
   },
   {
@@ -477,8 +477,21 @@ export const services: Service[] = [
   },
 ];
 
+const FEATURED_SERVICE_SLUGS = [
+  "consulta-veterinaria-general",
+  "hospitalizacion",
+  "cirugia",
+  "imagenologia",
+] as const;
+
 export function getEnabledServices(): Service[] {
   return services.filter((service) => service.enabled);
+}
+
+export function getFeaturedServices(): Service[] {
+  return FEATURED_SERVICE_SLUGS.map((slug) => getServiceBySlug(slug)).filter(
+    (service): service is Service => Boolean(service?.enabled),
+  );
 }
 
 export function getServiceBySlug(slug: string): Service | undefined {

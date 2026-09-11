@@ -4,12 +4,10 @@ export interface NavItem {
 }
 
 export const primaryNav: NavItem[] = [
-  { href: "/", label: "Inicio" },
   { href: "/hospital", label: "Hospital" },
   { href: "/servicios", label: "Servicios" },
   { href: "/especialidades", label: "Especialidades" },
   { href: "/equipo", label: "Equipo" },
-  { href: "/urgencias", label: "Urgencias" },
   { href: "/contacto", label: "Contacto" },
 ];
 
@@ -22,7 +20,6 @@ export const footerHospitalNav: NavItem[] = [
 
 export const footerPatientsNav: NavItem[] = [
   { href: "/reservar", label: "Reservar" },
-  { href: "/urgencias", label: "Urgencias" },
   { href: "/contacto", label: "Contacto" },
   { href: "/preguntas-frecuentes", label: "Preguntas frecuentes" },
 ];

@@ -11,7 +11,7 @@ import { Container } from "@/components/ui/container";
 export const metadata: Metadata = {
   title: getPageTitle("Contacto"),
   description:
-    "Contacto del Hospital Veterinario Bilbao, clínica veterinaria 24 horas en Francisco Bilbao 2941, Providencia. Teléfono y WhatsApp +56 9 9000 2944.",
+    "Contacto del Hospital Veterinario Bilbao, clínica veterinaria en Francisco Bilbao 2941, Providencia. Teléfono y WhatsApp +56 9 9000 2944.",
 };
 
 export default function ContactPage() {
@@ -24,7 +24,7 @@ export default function ContactPage() {
       <PageIntro
         eyebrow="Contacto"
         title="Estamos para orientar la atención."
-        description="Usa el formulario para una consulta no urgente. Ante una urgencia veterinaria, llama o acude: estamos abiertos las 24 horas."
+        description="Usa el formulario o reserva una hora. Por ahora no ofrecemos urgencias ni atención 24 horas."
         breadcrumbs={[
           { href: "/", label: "Inicio" },
           { label: "Contacto" },
@@ -34,8 +34,8 @@ export default function ContactPage() {
             <Button href={getBookingUrl()} event="click_reservar">
               Reservar hora
             </Button>
-            <Button href="/urgencias" variant="secondary">
-              Urgencias
+            <Button href="/hospital" variant="outline">
+              Conocer el hospital
             </Button>
           </>
         }

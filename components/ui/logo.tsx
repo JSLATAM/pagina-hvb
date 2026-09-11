@@ -4,21 +4,22 @@ import { brand } from "@/config/site";
 import { site } from "@/config/site";
 import { cn } from "@/lib/utils";
 
-type LogoVariant = "header" | "compact" | "footer" | "institutional";
+type LogoVariant = "header" | "compact" | "footer" | "institutional" | "hero";
 
 const sizes: Record<
   LogoVariant,
   {
     box: string;
     image: number;
-    wordmark: "none" | "short" | "full";
+    wordmark: "none" | "short" | "full" | "header";
     stacked?: boolean;
   }
 > = {
-  header: { box: "h-12 w-12", image: 48, wordmark: "short" },
+  header: { box: "h-14 w-14", image: 56, wordmark: "header" },
   compact: { box: "h-10 w-10", image: 40, wordmark: "none" },
   footer: { box: "h-16 w-16", image: 64, wordmark: "full", stacked: true },
   institutional: { box: "h-24 w-24 sm:h-32 sm:w-32", image: 128, wordmark: "none" },
+  hero: { box: "h-36 w-36 sm:h-44 sm:w-44", image: 176, wordmark: "none" },
 };
 
 interface LogoProps {
@@ -62,6 +63,16 @@ export function Logo({
       {size.wordmark === "short" ? (
         <span className="hidden font-heading text-sm font-semibold tracking-[0.18em] text-navy uppercase sm:block">
           {site.shortName}
+        </span>
+      ) : null}
+      {size.wordmark === "header" ? (
+        <span className="hidden min-w-0 sm:block">
+          <span className="block font-heading text-sm leading-tight font-semibold text-navy sm:text-[0.95rem]">
+            Hospital Veterinario
+          </span>
+          <span className="block font-heading text-sm leading-tight font-semibold text-steel">
+            Bilbao
+          </span>
         </span>
       ) : null}
       {size.wordmark === "full" ? (

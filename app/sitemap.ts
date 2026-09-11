@@ -17,7 +17,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/servicios",
     "/especialidades",
     "/equipo",
-    "/urgencias",
     "/contacto",
     "/reservar",
     "/preguntas-frecuentes",
