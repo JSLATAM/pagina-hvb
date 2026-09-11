@@ -1,4 +1,4 @@
-import { brand, site } from "@/config/site";
+import { site } from "@/config/site";
 import { getEnabledServices } from "@/data/services";
 import { digitsOnly, getSiteUrl, isConfigured } from "@/lib/utils";
 
@@ -12,7 +12,9 @@ export function getVeterinarySchema(): Record<string, unknown> {
     alternateName: [site.shortName, "Clínica Veterinaria Bilbao"],
     description: site.description,
     url,
-    image: url ? new URL(brand.logo, url).toString() : undefined,
+    image: url
+      ? `${url.replace(/\/$/, "")}/brand/hvb-logo.jpg`
+      : undefined,
     telephone: isConfigured(site.phone)
       ? `+${digitsOnly(site.phone)}`
       : undefined,

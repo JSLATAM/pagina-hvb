@@ -1,4 +1,5 @@
 import type { SiteConfig } from "@/types/site";
+import { publicAsset } from "@/lib/utils";
 
 export const site: SiteConfig = {
   name: "Hospital Veterinario Bilbao",
@@ -45,6 +46,6 @@ export const site: SiteConfig = {
 };
 
 export const brand = {
-  logo: "/brand/hvb-logo.jpg",
+  logo: publicAsset("/brand/hvb-logo.jpg"),
   logoAlt: "Hospital Veterinario Bilbao",
 } as const;

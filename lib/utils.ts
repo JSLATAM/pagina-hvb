@@ -35,3 +35,12 @@ export function getSiteUrl(): string | undefined {
   const value = process.env.NEXT_PUBLIC_SITE_URL;
   return isHttpUrl(value) ? value : undefined;
 }
+
+export function getBasePath(): string {
+  return process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+}
+
+export function publicAsset(path: string): string {
+  const normalized = path.startsWith("/") ? path : `/${path}`;
+  return `${getBasePath()}${normalized}`;
+}
